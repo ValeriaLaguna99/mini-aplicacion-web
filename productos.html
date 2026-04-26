@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filtrado de Productos</title>
+</head>
+<body>
+    <h1>Filtrado de Productos</h1>
+    
+    <label for="categoria">Filtrar por Categoría:</label>
+    <select id="categoria">
+        <option value="todos">Todos</option>
+        <option value="libreria">Librería 📚</option>
+        <option value="accesorios">Accesorios 🎒</option>
+        <option value="electronica">Electrónica 💻</option>
+    </select>
+
+    <label for="precio">Precio Máximo:</label>
+    <input type="range" id="precio" min="0" max="1000" value="1000">
+
+    <label for="enStock">Mostrar solo en stock:</label>
+    <input type="checkbox" id="enStock">
+
+    <label for="busqueda">Buscar por Nombre:</label>
+    <input type="text" id="busqueda" placeholder="Buscar producto...">
+
+    <div id="productos" class="productos-grid"></div>
+
+    <script src="js/productos.js"></script>
+</body>
+</html>
