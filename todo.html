@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Lista de Tareas</title>
-    <style>
-        .tarea { cursor: pointer; padding: 5px; border-bottom: 1px solid #ccc; }
-        .tarea:hover { background-color: #f0f0f0; }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>Mis Tareas</h1>
-    <input type="text" id="inputTarea" placeholder="Escribe algo...">
-    <button id="btnAgregar">Agregar</button>
-    <ul id="listaTareas"></ul>
-
+    <div class="container">
+        <form id="formTarea">
+            <input type="text" id="inputTarea" placeholder="Nueva tarea...">
+            <button type="submit" id="btnAgregar">Agregar</button>
+        </form>
+        <p id="contador">Pendientes: 0</p>
+        <ul id="listaTareas"></ul>
+    </div>
     <script src="todo.js"></script>
 </body>
 </html>

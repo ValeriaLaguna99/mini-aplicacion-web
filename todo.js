@@ -1,29 +1,44 @@
+const form = document.getElementById("formTarea");
 const input = document.getElementById("inputTarea");
-const btn = document.getElementById("btnAgregar");
 const lista = document.getElementById("listaTareas");
+const contador = document.getElementById("contador");
 
-btn.addEventListener("click", () => {
+function actualizarContador() {
+    const pendientes = document.querySelectorAll(".tarea:not(.completada)").length;
+    contador.textContent = `Pendientes: ${pendientes}`;
+}
+
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
     const texto = input.value.trim();
-   
-    if (texto === "") return;
+    if (texto === "") return; // No permitir vacíos
 
+    crearTarea(texto, false);
+    input.value = "";
+    actualizarContador();
+});
+
+function crearTarea(texto, completada) {
     const li = document.createElement("li");
     li.className = "tarea";
+    if (completada) li.classList.add("completada");
+
+    const span = document.createElement("span");
+    span.textContent = texto;
     
-    const spanTexto = document.createElement("span");
-    spanTexto.textContent = texto + " ";
-    
-    const btnBorrar = document.createElement("button");
-    btnBorrar.textContent = "Borrar";
-    
-    btnBorrar.addEventListener("click", () => {
-        li.remove();
+    span.addEventListener("click", () => {
+        li.classList.toggle("completada");
+        actualizarContador();
     });
 
-    li.appendChild(spanTexto);
-    li.appendChild(btnBorrar);
+    const btnBorrar = document.createElement("button");
+    btnBorrar.textContent = "Eliminar";
+    btnBorrar.addEventListener("click", () => {
+        li.remove();
+        actualizarContador();
+    });
 
+    li.appendChild(span);
+    li.appendChild(btnBorrar);
     lista.appendChild(li);
-    
-    input.value = "";
-});
+}
