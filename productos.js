@@ -1,3 +1,4 @@
+const contenedor = document.getElementById("contenedorProductos");
 const productos = [
     { id: 1, nombre: "Auriculares Bluetooth", precio: 50000, categoria: "electronicos", enStock: true },
     { id: 2, nombre: "Cuaderno A4", precio: 5000, categoria: "articulos escolares", enStock: true },
@@ -16,15 +17,16 @@ const filtroStock = document.getElementById("filtroStock");
 
 
 const renderizarProductos = (lista) => {
+    if (!contenedor) return; // Por seguridad
+
     contenedor.innerHTML = lista.map(producto => `
         <div class="tarjeta">
             <h3>${producto.nombre}</h3>
             <p>Precio: $${producto.precio}</p>
-            <p>Categoría: ${producto.categoria}</p>
-            <p>${producto.enStock ? "En stock" : "Sin stock"}</p>
         </div>
     `).join("");
 };
+renderizarProductos(productos);
 
 const aplicarFiltros = () => {
 
