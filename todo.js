@@ -11,7 +11,7 @@ function actualizarContador() {
 form.addEventListener("submit", (e) => {
     e.preventDefault();
     const texto = input.value.trim();
-    if (texto === "") return; // No permitir vacíos
+    if (texto === "") return; 
 
     crearTarea(texto, false);
     input.value = "";
