@@ -1,0 +1,10 @@
+# Carpetas de VS Code
+.vscode/
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Extensiones o logs de Live Server
+.history/
+*.log
